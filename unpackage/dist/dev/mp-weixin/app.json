@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/album/album",
+    "pages/anime/anime",
+    "pages/detection/detection"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "selectedColor": "#3d6658",
+    "color": "#8a8a8a",
+    "list": [
+      {
+        "pagePath": "pages/album/album",
+        "text": "album",
+        "selectedIconPath": "static/icons/ac_album.png",
+        "iconPath": "static/icons/album.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "camera",
+        "selectedIconPath": "static/icons/ac_camera.png",
+        "iconPath": "static/icons/camera.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "mine",
+        "selectedIconPath": "static/icons/ac_mine.png",
+        "iconPath": "static/icons/mine.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "van-dialog": "wxcomponents/vant/dist/dialog/index"
+  }
+}
