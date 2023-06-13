@@ -113,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(uni) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -131,14 +131,19 @@ var _requestAPI = __webpack_require__(/*! api/requestAPI.js */ 30);
 // 导入request
 var _default = {
   onLaunch: function onLaunch() {
-    console.log('App Launch');
+    var _this = this;
+    // 缓存判定
 
-    // TODO..缓存判定
-
-    // 全局获取Token, 有效期30天, 缓存
-
-    (0, _requestAPI.getFaceAccessToken)().then(function (res) {
-      console.log("token =>", res.data.access_token);
+    // 判断是否有token缓存, 以及是否过期
+    uni.getStorage({
+      key: "access_token"
+    }).then(function (res) {
+      // 如果缓存过期, 重新缓存
+      if (Date.now() >= res.data.outTime) _this.token_storage();
+    })
+    // 无目标缓存, 重新缓存
+    .catch(function () {
+      return _this.token_storage();
     });
   },
   onShow: function onShow() {
@@ -146,9 +151,35 @@ var _default = {
   },
   onHide: function onHide() {
     console.log('App Hide');
+  },
+  methods: {
+    // 设置缓存
+    token_storage: function token_storage() {
+      // 全局获取Token, 有效期30天, 缓存
+      (0, _requestAPI.accessTokenAll)().then(function (res) {
+        // console.log("token =>", res); // [{}, {}]
+
+        // 构造缓存数据 
+        var data = {
+          face_token: res[0].access_token,
+          anime_token: res[1].access_token,
+          outTime: Date.now() + 30 * 24 * 3600 * 1000 // 设置有效期30天
+        };
+
+        // 设置缓存
+        uni.setStorage({
+          key: 'access_token',
+          data: data,
+          success: function success() {
+            console.log('token 缓存成功');
+          }
+        });
+      });
+    }
   }
 };
 exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 

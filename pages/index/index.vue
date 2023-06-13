@@ -2,7 +2,7 @@
 * @Author: JansChong
 * @Date: 2023-06-04 18:19:17
 * @LastEditors: JansChong
-* @LastEditTime: 2023-06-04 18:19:38
+* @LastEditTime: 2023-06-13 22:14:12
 * @FilePath: /pages/index/index.vue
 * @Description: In User Settings Edit
 -->
@@ -74,6 +74,7 @@
 			// });
 		},
 		methods: {
+
 			// 拍摄照片
 			takePhoto() {
 				// 相机上下文
@@ -89,22 +90,28 @@
 					this.showDialog = true;
 				})
 			},
+
 			// 人像动漫化
 			animatedPortrait() {
 				console.log("人像动漫化");
+				// 跳转到人像动漫化
 				uni.navigateTo({
+					// 页面参数: temp_photo = 临时图片路径
 					url: "/pages/anime/anime?temp_photo=" + this.temp_photo
 				})
 			},
 			// 人脸检测
 			faceDetection() {
 				console.log("人脸检测");
+				// 跳转到人脸检测
 				uni.navigateTo({
+					// 页面参数: temp_photo = 临时图片路径
 					url: "/pages/detection/detection?temp_photo=" + this.temp_photo
 				})
 			},
 			// 切换闪关灯
 			toggleFlash() {
+				// 0关闭、1打开、2自动
 				this.flash_state++;
 				this.flash_state = this.flash_state > 2 ? 0 : this.flash_state;
 				console.log(this.flash_state);

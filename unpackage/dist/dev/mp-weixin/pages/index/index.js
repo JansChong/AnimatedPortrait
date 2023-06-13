@@ -235,19 +235,24 @@ var _default = {
     // 人像动漫化
     animatedPortrait: function animatedPortrait() {
       console.log("人像动漫化");
+      // 跳转到人像动漫化
       uni.navigateTo({
+        // 页面参数: temp_photo = 临时图片路径
         url: "/pages/anime/anime?temp_photo=" + this.temp_photo
       });
     },
     // 人脸检测
     faceDetection: function faceDetection() {
       console.log("人脸检测");
+      // 跳转到人脸检测
       uni.navigateTo({
+        // 页面参数: temp_photo = 临时图片路径
         url: "/pages/detection/detection?temp_photo=" + this.temp_photo
       });
     },
     // 切换闪关灯
     toggleFlash: function toggleFlash() {
+      // 0关闭、1打开、2自动
       this.flash_state++;
       this.flash_state = this.flash_state > 2 ? 0 : this.flash_state;
       console.log(this.flash_state);

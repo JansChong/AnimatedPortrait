@@ -9464,49 +9464,51 @@ internalMixin(Vue);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getFaceAccessToken = exports.getAnimeAccessToken = void 0;
+exports.accessTokenAll = accessTokenAll;
+var _keys = __webpack_require__(/*! api/keys.js */ 66);
 /*
-* @Author: JansChong
-* @Date: 2023-06-04 18:18:32
-* @LastEditors: JansChong
-* @LastEditTime: 2023-06-04 18:19:00
-* @FilePath: /api/requestAPI.js
-* @Description: In User Settings Edit
-*/
+ * @Author: JansChong
+ * @Date: 2023-06-04 18:18:32
+ * @LastEditors: JansChong
+* @LastEditTime: 2023-06-14 01:26:46
+ * @FilePath: /api/requestAPI.js
+ * @Description: In User Settings Edit
+ */
+
+// 人脸token 和 动漫token的promise对象,  用于promise.all()
+var faceToken = getAccessToken(_keys.client_id, _keys.client_secret);
+var animeToken = getAccessToken(_keys.client_id_anime, _keys.client_secret_anime);
 
 // 获取人脸检测token
-var getFaceAccessToken = function getFaceAccessToken() {
+function getAccessToken(client_id, client_secret) {
+  // Vue2 对部分 API 进行了 Promise 封装，返回数据的第一个参数是错误对象，第二个参数是返回数据。此时使用 catch 是拿不到报错信息的，因为内部对错误进行了拦截。
   return uni.request({
     url: "https://aip.baidubce.com/oauth/2.0/token",
     method: "GET",
     data: {
       grant_type: "client_credentials",
       // 人脸识别 appkey 和 secretKey
-      client_id: "F6kIdvWs1iUneYlHWm2dyxLN",
-      client_secret: "Dv1BqjCYqVTXAkFYmx3ptCCoTIm0jWiR"
+      client_id: client_id,
+      client_secret: client_secret
     },
     dataType: "json"
+  }).then(function (res) {
+    // Vue2 对部分 API 进行了 Promise 封装，返回数据的第一个参数是错误对象，第二个参数是返回数据。此时使用 catch 是拿不到报错信息的，因为内部对错误进行了拦截。
+    // [null, {}]	
+    // 去除错误对象null, 直接返回数据{} 
+    return new Promise(function (resolve, reject) {
+      return resolve(res[1].data);
+    });
   });
-};
+}
+;
 
-// 获取人像动漫化token
-exports.getFaceAccessToken = getFaceAccessToken;
-var getAnimeAccessToken = function getAnimeAccessToken() {
-  return uni.request({
-    url: "https://aip.baidubce.com/oauth/2.0/token",
-    method: "GET",
-    data: {
-      grant_type: "client_credentials",
-      // 动漫人像
-      client_id: "2GBIMbINRigGZDY69sOpIQnB",
-      client_secret: "B1rUDX2GbSKSinhNXzLAuvvEjKhxcjsW"
-    },
-    dataType: "json"
-  });
-};
+// promise.all(), 返回两个必须的access_token
+function accessTokenAll() {
+  return Promise.all([faceToken, animeToken]); // 返回promise对象, [{face_token},{anime_token}]
+}
 
 // 导出模块
-exports.getAnimeAccessToken = getAnimeAccessToken;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
@@ -9761,6 +9763,66 @@ Dialog.resetDefaultOptions();
 var _default = Dialog;
 exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"]))
+
+/***/ }),
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */
+/*!******************************************************************************!*\
+  !*** /Users/mac/Documents/HBuilderProjects/JulyAnimatedPortrait/api/keys.js ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.client_secret_anime = exports.client_secret = exports.client_id_anime = exports.client_id = void 0;
+/*
+* @Author: JansChong
+* @Date: 2023-06-14 00:48:49
+* @LastEditors: JansChong
+* @LastEditTime: 2023-06-14 01:20:49
+* @FilePath: /api/keys.js
+* @Description: In User Settings Edit
+*/
+
+// 获取人脸识别key: 百度智能云 - 产品 - 人脸与人体  https://cloud.baidu.com/product/face
+var client_id = "F6kIdvWs1iUneYlHWm2dyxLN";
+exports.client_id = client_id;
+var client_secret = "Dv1BqjCYqVTXAkFYmx3ptCCoTIm0jWiR";
+
+// 获取人像动漫化token: 百度智能云 - 产品 - 图像技术 - 图像特效 - 人像动漫化  https://cloud.baidu.com/product/imageprocess/selfie_anime
+exports.client_secret = client_secret;
+var client_id_anime = "2GBIMbINRigGZDY69sOpIQnB";
+exports.client_id_anime = client_id_anime;
+var client_secret_anime = "B1rUDX2GbSKSinhNXzLAuvvEjKhxcjsW";
+exports.client_secret_anime = client_secret_anime;
 
 /***/ })
 ]]);
