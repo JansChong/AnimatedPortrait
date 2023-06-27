@@ -1,0 +1,6 @@
+
+.detection .face-show-box {
+	width: 640rpx;
+	margin: 0 auto;
+}
+

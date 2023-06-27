@@ -29,7 +29,7 @@
             "path" : "pages/anime/anime",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "动漫人像",
                 "enablePullDownRefresh": false
             }
             
@@ -38,7 +38,7 @@
             "path" : "pages/detection/detection",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "人像检测",
                 "enablePullDownRefresh": false
             }
             

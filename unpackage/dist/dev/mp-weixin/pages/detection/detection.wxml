@@ -1,1 +1,1 @@
-<view class="detection">人像检测</view>
+<view class="detection"><view class="face-show-box"><image class="auto-img" src="{{temp_photo}}" mode="widthFix"></image></view><view class="msg-show-box"><view>{{age}}</view><view>{{gender.type}}</view><view>{{beauty}}</view><view>{{face_shape.type}}</view><view>{{expression.type}}</view><view>{{emotion.type}}</view><view>{{glasses.type}}</view><view>{{location}}</view></view></view>
