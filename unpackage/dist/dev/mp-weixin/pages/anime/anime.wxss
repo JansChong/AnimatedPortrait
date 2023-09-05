@@ -1,0 +1,22 @@
+.anime .face-show-box {
+  width: 640rpx;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-shadow: 2px 1px 13px -1px #000;
+  position: relative;
+}
+.anime image:last-child {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.anime image:last-child:hover {
+  z-index: -1;
+}
+.anime .tips {
+  font-size: 24rpx;
+  color: #999;
+  margin: 22rpx 60rpx;
+}
+

@@ -1,6 +1,52 @@
-
 .detection .face-show-box {
-	width: 640rpx;
-	margin: 0 auto;
+  width: 640rpx;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-shadow: 2px 1px 13px -1px #000;
+  position: relative;
+  margin-bottom: 40rpx;
+}
+.detection .face-show-box .face_mark {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.detection .face-show-box .face_mark > view {
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+  background-color: rgba(0, 255, 0, 0.8);
+}
+.detection .face-show-box .face-box {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  position: absolute;
+}
+.detection .msg-show-box {
+  padding-left: 46rpx;
+  box-sizing: border-box;
+}
+.detection .msg-show-box view {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  padding-right: 46rpx;
+  border-bottom: 1px solid #efefef;
+  box-sizing: border-box;
+}
+.detection .msg-show-box view text:last-child {
+  margin-left: 20rpx;
+}
+.detection .msg-show-box view text:last-child {
+  color: #888;
+}
+.detection .msg-show-box view:last-child {
+  border-bottom: none;
 }
 

@@ -1,11 +1,11 @@
 /*
-* @Author: JansChong
-* @Date: 2023-06-04 18:20:33
-* @LastEditors: JansChong
-* @LastEditTime: 2023-06-04 18:20:33
-* @FilePath: /pages.json
-* @Description: In User Settings Edit
-*/
+ * @Author: JansChong
+ * @Date: 2023-06-04 18:20:33
+ * @LastEditors: JansChong
+ * @LastEditTime: 2023-06-04 18:20:33
+ * @FilePath: /pages.json
+ * @Description: In User Settings Edit
+ */
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
@@ -24,26 +24,22 @@
 				"navigationBarTitleText": "选择相册"
 			}
 
+		}, {
+			"path": "pages/anime/anime",
+			"style": {
+				"navigationBarTitleText": "动漫人像",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/detection/detection",
+			"style": {
+				"navigationBarTitleText": "人像检测",
+				"enablePullDownRefresh": false
+			}
+
 		}
-	    ,{
-            "path" : "pages/anime/anime",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "动漫人像",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/detection/detection",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "人像检测",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarBackgroundColor": "#F8F8F8",
@@ -51,7 +47,8 @@
 		"enablePullDownRefresh": false,
 		// 全局vant组件
 		"usingComponents": {
-			 "van-dialog": "wxcomponents/vant/dist/dialog/index"
+			"van-dialog": "wxcomponents/vant/dist/dialog/index",
+			"van-skeleton": "wxcomponents/vant/dist/skeleton/index"
 		}
 	},
 	"tabBar": {

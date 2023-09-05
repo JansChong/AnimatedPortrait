@@ -1,0 +1,11 @@
+.album {
+  width: 100%;
+  height: 100%;
+}
+.album > button {
+  width: 350rpx;
+  position: fixed;
+  left: calc(50% - 350rpx/2);
+  bottom: 80rpx;
+}
+

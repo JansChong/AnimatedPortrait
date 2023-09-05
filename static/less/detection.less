@@ -1,0 +1,64 @@
+.detection {
+	
+	// 图片
+	.face-show-box {
+		width: 640upx;
+		margin: 0 auto;
+		border-radius: 10upx;
+		overflow: hidden;
+		box-shadow: 2px 1px 13px -1px #000;
+		position: relative;
+		margin-bottom: 40upx;
+		
+		.face_mark{
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+		}
+		
+		.face_mark>view{
+			width: 8upx;
+			height: 8upx;
+			border-radius: 50%;
+			transform: translate(-50%, -50%);
+			position: absolute;
+			background-color: rgba(0,255,0, 0.8);
+		}
+		
+	}
+	// 人脸框
+	.face-show-box .face-box{
+		border: 1px solid rgba(255,255,255,0.5);
+		box-sizing: border-box;
+		position: absolute;
+	}
+	
+	// 数据展示
+	.msg-show-box{
+		padding-left: 46upx;
+		box-sizing: border-box;
+	}
+	.msg-show-box view{
+		height: 80upx;
+		display: flex;
+		// justify-content: space-between;
+		align-items: center;
+		padding-right: 46upx;
+		border-bottom: 1px solid #efefef;
+		box-sizing: border-box;
+		
+		text:last-child{
+			margin-left: 20upx;
+		}
+		
+		text:last-child{
+			color: #888;
+		}
+		
+		&:last-child{
+			border-bottom: none;
+		}
+	}
+}

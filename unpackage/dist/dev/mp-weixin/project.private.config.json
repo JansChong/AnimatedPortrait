@@ -1,7 +1,17 @@
 {
     "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-    "projectname": "JulyAnimatedPortrait",
-    "setting": {
-        "compileHotReLoad": true
-    }
+    "condition": {
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "",
+                    "pathName": "pages/detection/detection",
+                    "query": "temp_photo=http%3A%2F%2Ftmp%2FVJPTA6v5UDK7697b05fd3bd0f29bb5ed7f36acf26ed1.png",
+                    "launchMode": "default",
+                    "scene": null
+                }
+            ]
+        }
+    },
+    "setting": {}
 }

@@ -44,6 +44,7 @@
 	// vant 弹出层
 	import Dialog from '../../wxcomponents/vant/dist/dialog/dialog';
 
+
 	export default {
 		data() {
 			return {

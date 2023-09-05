@@ -1,1 +1,1 @@
-<view class="anime">动漫化</view>
+<view class="anime"><view class="face-show-box"><image class="auto-img" src="{{temp_photo}}" mode="widthFix"></image><image class="auto-img" src="{{temp_photo2}}" mode="widthFix"></image></view><view class="tips">注: 点击图片切换原图/动漫</view></view>
